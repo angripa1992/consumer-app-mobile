@@ -1,0 +1,25 @@
+{
+	"extends": "expo/tsconfig.base",
+	"compilerOptions": {
+		"strict": true,
+		"jsx": "react-native",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"],
+			"@/UI/*": ["./src/UI/*"],
+			"@/svg/*": ["./src/UI/assets/svg/*"],
+			"@/screens/*": ["./src/screens/*"],
+			"@/navigation/*": ["./src/navigation/*"],
+			"@/hooks/*": ["./src/lib/hooks/*"],
+			"@/images/*": ["./src/UI/assets/images/*"],
+			"@/utils/*": ["./src/lib/utils/*"],
+			"@/types/*": ["./src/lib/types/*"],
+			"@/helpers/*": ["./src/lib/helpers/*"],
+			"@/schemas/*": ["./src/lib/schemas/*"],
+			"@/lib/*": ["./src/lib/*"],
+			"@/store/*": ["./src/lib/store/*"],
+		},
+	},
+	"include": ["**/*.ts", "**/*.tsx", "e2e/tsconfig.json"],
+	"exclude": ["node_modules"],
+}

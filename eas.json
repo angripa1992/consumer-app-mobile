@@ -1,0 +1,91 @@
+{
+	"cli": {
+		"version": ">= 3.15.1"
+	},
+	"build": {
+		"test": {
+			"android": {
+				"gradleCommand": ":app:assembleRelease :app:assembleAndroidTest -DtestBuildType=release",
+				"withoutCredentials": true
+			},
+			"ios": {
+				"simulator": true
+			}
+		},
+		"development-android": {
+			"developmentClient": true,
+			"distribution": "internal",
+			"channel": "development-android",
+			"env": {
+				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "1058378563758",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:1058378563758:web:94f732d53df534dbe0ad3f",
+				"EXPO_PUBLIC_BUILD_TYPE": "production",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://388353a3930e803c176f52444b6174f9@o4508522285629440.ingest.us.sentry.io/4508522286743552"
+			},
+		},
+		"development-ios": {
+			"developmentClient": true,
+			"distribution": "internal",
+			"channel": "development-ios",
+			"ios": {
+				"simulator": true
+			},
+			"env": {
+				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "1058378563758",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:1058378563758:web:94f732d53df534dbe0ad3f",
+				"EXPO_PUBLIC_BUILD_TYPE": "production",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://388353a3930e803c176f52444b6174f9@o4508522285629440.ingest.us.sentry.io/4508522286743552"
+			},
+		},
+		"staging": {
+			"distribution": "store",
+			"channel": "staging",
+			"env": {
+				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "1058378563758",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:1058378563758:web:94f732d53df534dbe0ad3f",
+				"EXPO_PUBLIC_BUILD_TYPE": "production",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://388353a3930e803c176f52444b6174f9@o4508522285629440.ingest.us.sentry.io/4508522286743552"
+			},
+			"android": {
+				"buildType": "app-bundle"
+			}
+		},
+		"production": {
+			"env": {
+				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "1058378563758",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:1058378563758:web:94f732d53df534dbe0ad3f",
+				"EXPO_PUBLIC_BUILD_TYPE": "production",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://388353a3930e803c176f52444b6174f9@o4508522285629440.ingest.us.sentry.io/4508522286743552"
+			},
+			"channel": "production"
+		}
+	},
+	"submit": {
+		"production": {
+			"ios": {
+				"ascAppId": "6468717838",
+				"appleTeamId": "A3L7V2RFBG"
+			}
+		}
+	}
+}

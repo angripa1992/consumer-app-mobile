@@ -1,0 +1,51 @@
+export const homeCategories = [
+	{
+		name: 'Tuckers list',
+		image: null,
+		flagIcon: '🇸🇬',
+		category: 'popular',
+		spotListId: 45,
+	},
+	{
+		name: 'Best places in Niagara',
+		image: null,
+		flagIcon: '🇨🇦',
+		category: 'popular',
+		spotListId: 55,
+	},
+	{
+		name: 'Best places in Tokyo',
+		image: null,
+		flagIcon: '🇯🇵',
+		category: 'popular',
+		spotListId: 51,
+	},
+	{
+		name: 'Best places Indonesia',
+		image: null,
+		flagIcon: '🇵🇭',
+		category: 'popular',
+		spotListId: 44,
+	},
+	{
+		name: 'Top Burgers',
+		image: null,
+		flagIcon: '🇺🇸',
+		category: 'personal',
+		spotListId: 52,
+	},
+	{
+		name: 'Top places in Bogota',
+		image: null,
+		flagIcon: '🇨🇴',
+		category: 'personal',
+		spotListId: 31,
+	},
+	{
+		name: 'Best restaurants in Spain ',
+		image: null,
+		flagIcon: '🇪🇸',
+		category: 'personal',
+		spotListId: 38,
+	},
+];

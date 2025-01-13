@@ -1,0 +1,90 @@
+{
+	"cli": {
+		"version": ">= 3.15.1",
+		"appVersionSource": "remote"
+	},
+	"build": {
+		"test": {
+			"android": {
+				"gradleCommand": ":app:assembleRelease :app:assembleAndroidTest -DtestBuildType=release",
+				"withoutCredentials": true
+			},
+			"ios": {
+				"simulator": true
+			}
+		},
+		"development-android": {
+			"developmentClient": true,
+			"distribution": "internal",
+			"channel": "development-android",
+			"env": {
+				"EXPO_PUBLIC_API_URL": "http://10.0.2.2:5000",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyD3mBFHKUZC1CMyWw7do6GAd1vstufRknU",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "brave-inn-396122.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "brave-inn-396122",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "brave-inn-396122.appspot.com",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "990392060504",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:990392060504:web:61214b2610c7e5321e582d",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://ff487249af10356605d1bb3893e22e5f@o4507075617226752.ingest.us.sentry.io/4507075619192832"
+			}
+		},
+		"development-ios": {
+			"developmentClient": true,
+			"distribution": "internal",
+			"channel": "development-ios",
+			"ios": {
+				"simulator": true
+			},
+			"env": {
+				"EXPO_PUBLIC_API_URL": "http://127.0.0.1:5000",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyD3mBFHKUZC1CMyWw7do6GAd1vstufRknU",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "brave-inn-396122.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "brave-inn-396122",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "brave-inn-396122.appspot.com",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "990392060504",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:990392060504:web:61214b2610c7e5321e582d",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://ff487249af10356605d1bb3893e22e5f@o4507075617226752.ingest.us.sentry.io/4507075619192832"
+			}
+		},
+		"staging": {
+			"distribution": "store",
+			"channel": "staging",
+			"env": {
+				"EXPO_PUBLIC_API_URL": "https://api.klikit.io/staging",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyD3mBFHKUZC1CMyWw7do6GAd1vstufRknU",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "brave-inn-396122.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "brave-inn-396122",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "brave-inn-396122.appspot.com",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "990392060504",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:990392060504:web:61214b2610c7e5321e582d",
+				"EXPO_PUBLIC_BUILD_TYPE": "staging",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://ff487249af10356605d1bb3893e22e5f@o4507075617226752.ingest.us.sentry.io/4507075619192832"
+			},
+			"android": {
+				"buildType": "app-bundle"
+			}
+		},
+		"production": {
+			"env": {
+				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyD3mBFHKUZC1CMyWw7do6GAd1vstufRknU",
+				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "brave-inn-396122.firebaseapp.com",
+				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "brave-inn-396122",
+				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "brave-inn-396122.appspot.com",
+				"EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "990392060504",
+				"EXPO_PUBLIC_FIREBASE_APP_ID": "1:990392060504:web:61214b2610c7e5321e582d",
+				"EXPO_PUBLIC_BUILD_TYPE": "production",
+				"EXPO_PUBLIC_SENTRY_DNS": "https://ff487249af10356605d1bb3893e22e5f@o4507075617226752.ingest.us.sentry.io/4507075619192832"
+			},
+			"channel": "production"
+		}
+	},
+	"submit": {
+		"production": {
+			"ios": {
+				"ascAppId": "6468717838",
+				"appleTeamId": "A3L7V2RFBG"
+			}
+		}
+	}
+}
