@@ -18,7 +18,7 @@
 			"channel": "development-android",
 			"env": {
 				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
-				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyCQM1UTlQOwq59B-xtx3nV3BNyoK2nr7oo",
 				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
 				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
 				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
@@ -37,7 +37,7 @@
 			},
 			"env": {
 				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
-				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyCQM1UTlQOwq59B-xtx3nV3BNyoK2nr7oo",
 				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
 				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
 				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
@@ -52,7 +52,7 @@
 			"channel": "staging",
 			"env": {
 				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
-				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyCQM1UTlQOwq59B-xtx3nV3BNyoK2nr7oo",
 				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
 				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
 				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
@@ -68,7 +68,7 @@
 		"production": {
 			"env": {
 				"EXPO_PUBLIC_API_URL": "https://consumer.klikit.io",
-				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyDxKebaqnuySq2qvQvqYjG44IbKfKjgJrE",
+				"EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyCQM1UTlQOwq59B-xtx3nV3BNyoK2nr7oo",
 				"EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "klikit-consumer-39350.firebaseapp.com",
 				"EXPO_PUBLIC_FIREBASE_PROJECT_ID": "klikit-consumer-39350",
 				"EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "klikit-consumer-39350.firebasestorage.app",
