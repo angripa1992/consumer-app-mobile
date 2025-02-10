@@ -32,6 +32,7 @@ import PlayScreen from '@/screens/Play/PlayScreen';
 import type { ProfileScreenNavigationProp } from '@/lib/types/tabScreenParams';
 import CustomImage from '@/UI/atoms/image/CustomImage';
 import { useGetUser } from '@/lib/hooks/useQueryUser';
+import PlayNavigator from './PlayNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -180,7 +181,7 @@ const TabNavigator = () => {
 				/>
 				<Tab.Screen
 					name='Play'
-					component={PlayScreen}
+					component={PlayNavigator}
 					options={{
 						tabBarIcon: ({ focused }) => (
 							<View className={tabItemStyles} testID='play-nav-button'>

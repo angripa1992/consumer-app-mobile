@@ -7,7 +7,7 @@ export const getDataMeasuringPerfWithToken = async (
 	token: string,
 	userInfo: string,
 ) => {
-	const url = `${process.env.EXPO_PUBLIC_API_URL}${endpoint}`;
+	const url = `${'https://consumer.klikit.io'}${endpoint}`;
 	const metric = await perf().newHttpMetric(url, 'GET');
 
 	metric.putAttribute('user', userInfo);

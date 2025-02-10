@@ -132,6 +132,7 @@ export type OnboardingStackParamList = {
 	};
 };
 
+
 export type OnboardingInitialViewRouteParams = NativeStackScreenProps<
 	OnboardingStackParamList,
 	'InitialView'
@@ -214,6 +215,7 @@ export type AppStackParamList = CommonListNavigation &
 		};
 		InviteFriends: undefined;
 		ErrorScreen: undefined;
+		PlayNavigator: undefined;
 		LikesForSpot: {
 			spotId?: number;
 			googlePlacesId?: string;
@@ -241,33 +243,33 @@ export type AppStackNavigationProp = AppStackNavigationParams['navigation'];
 
 export type SpotScreenRouteParams = NativeStackScreenProps<
 	ListStackParamList &
-		ProfileStackParamList &
-		DiscoveryStackParamList &
-		AppStackParamList,
+	ProfileStackParamList &
+	DiscoveryStackParamList &
+	AppStackParamList,
 	'SingleSpot'
 >;
 
 export type LikesForSpotScreenRouteParams = NativeStackScreenProps<
 	ListStackParamList &
-		ProfileStackParamList &
-		DiscoveryStackParamList &
-		AppStackParamList,
+	ProfileStackParamList &
+	DiscoveryStackParamList &
+	AppStackParamList,
 	'LikesForSpot'
 >;
 
 export type ScribblesForSpotScreenRouteParams = NativeStackScreenProps<
 	ListStackParamList &
-		ProfileStackParamList &
-		DiscoveryStackParamList &
-		AppStackParamList,
+	ProfileStackParamList &
+	DiscoveryStackParamList &
+	AppStackParamList,
 	'ScribblesForSpot'
 >;
 
 export type ListsForSpotScreenRouteParams = NativeStackScreenProps<
 	ListStackParamList &
-		ProfileStackParamList &
-		DiscoveryStackParamList &
-		AppStackParamList,
+	ProfileStackParamList &
+	DiscoveryStackParamList &
+	AppStackParamList,
 	'ListsForSpot'
 >;
 
@@ -293,3 +295,58 @@ export type CreateBasicSpotScreenRouteParams = NativeStackScreenProps<
 
 export type CreateBasicSpotScreenNavigationProp =
 	CreateBasicSpotScreenRouteParams['navigation'];
+
+//Play	
+export type PlayStackParamList = {
+	PlayScreen: undefined;
+	HoldOnScreen: undefined;
+	MatchMakerScreen: undefined;
+	PlayNowScreen: undefined;
+	SelectCityScreen: undefined;
+	QueuePlayScreen: {
+		spotId: number | string;
+		isCandidateSpot?: boolean;
+		listIdToAddSpot?: number;
+		spotSpotListIdToRemove?: number | null;
+	};
+}
+export type PlayScreenRouteParams = NativeStackScreenProps<
+	PlayStackParamList,
+	'PlayScreen'
+>;
+
+export type PlayScreenNavigationProp = PlayScreenRouteParams['navigation'];
+
+export type HoldOnScreenRouteParams = NativeStackScreenProps<
+	PlayStackParamList,
+	'HoldOnScreen'
+>;
+
+export type HoldOnScreenNavigationProp = HoldOnScreenRouteParams['navigation'];
+
+export type MatchMakerScreenRouteParams = NativeStackScreenProps<
+	PlayStackParamList,
+	'MatchMakerScreen'
+>;
+
+export type MatchMakerScreenNavigationProp = MatchMakerScreenRouteParams['navigation'];
+
+export type PlayNowScreenRouteParams = NativeStackScreenProps<
+	PlayStackParamList,
+	'PlayNowScreen'
+>;
+
+export type PlayNowScreenNavigationProp = PlayNowScreenRouteParams['navigation'];
+
+export type SelectCityScreenRouteParams = NativeStackScreenProps<
+	PlayStackParamList,
+	'SelectCityScreen'
+>;
+
+export type QueuePlayScreenRouteParams = NativeStackScreenProps<
+	PlayStackParamList &
+	SpotScreenRouteParams &
+	AppStackParamList,
+	'QueuePlayScreen'
+>;
+
