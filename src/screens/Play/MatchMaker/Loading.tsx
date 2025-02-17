@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Animated } from 'react-native';
 import TextElement from '@/UI/atoms/text/TextElement';
 import HeaderFeed from '@/UI/layouts/feed/HeaderFeed';
 import GreenTextureHeader from '@/UI/assets/images/textures/green-texture-header.png';
@@ -11,8 +11,8 @@ import { useNavigation } from '@react-navigation/native';
 type PlayScreenNavigationProp = StackNavigationProp<PlayStackParamList, 'PlayScreen'>;
 
 const LoadingScreen = () => {
-        const navigation = useNavigation<PlayScreenNavigationProp>();
-    
+    const navigation = useNavigation<PlayScreenNavigationProp>();
+    const fadeAnim = new Animated.Value(0);
     const [loadingSteps, setLoadingSteps] = useState([
         { text: 'Analyzing Spots...', completed: false },
         { text: 'Building your Match Queue...', completed: false },
@@ -20,24 +20,50 @@ const LoadingScreen = () => {
     ]);
 
     useEffect(() => {
+        // Fade in the entire screen
+        Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+
+        // Handle loading steps with smoother transitions
         loadingSteps.forEach((step, index) => {
-          setTimeout(() => {
-            setLoadingSteps(prev =>
-              prev.map((s, i) =>
-                i === index ? { ...s, completed: true } : s
-              )
-            );
-            if (index === loadingSteps.length - 1) {
-              setTimeout(() => {
-                navigation.navigate('QueuePlayScreen');
-              }, 500); 
-            }
-          }, (index + 1) * 1000);
+            setTimeout(() => {
+                Animated.timing(fadeAnim, {
+                    toValue: 0.8,
+                    duration: 50,
+                    useNativeDriver: true,
+                }).start(() => {
+                    setLoadingSteps(prev =>
+                        prev.map((s, i) =>
+                            i === index ? { ...s, completed: true } : s
+                        )
+                    );
+                    Animated.timing(fadeAnim, {
+                        toValue: 1,
+                        duration: 50,
+                        useNativeDriver: true,
+                    }).start();
+                });
+
+                if (index === loadingSteps.length - 1) {
+                    setTimeout(() => {
+                        Animated.timing(fadeAnim, {
+                            toValue: 0,
+                            duration: 100,
+                            useNativeDriver: true,
+                        }).start(() => {
+                            navigation.navigate('QueuePlayScreen');
+                        });
+                    }, 200);
+                }
+            }, (index + 1) * 500);
         });
-      }, []);
+    }, []);
 
     return (
-        <>
+        <Animated.View style={{ opacity: fadeAnim, flex: 1 }}>
             <View className="relative w-full h-full">
                 <HeaderFeed />
                 <Image
@@ -64,23 +90,30 @@ const LoadingScreen = () => {
                     </TextElement>
                     <View className="space-y-4">
                         {loadingSteps.map((step, index) => (
-                            <View key={index} className="flex-row items-center">
+                            <Animated.View 
+                                key={index} 
+                                className="flex-row items-center"
+                                style={{
+                                    opacity: step.completed ? 1 : 0.5,
+                                    transform: [{ translateX: step.completed ? 0 : -10 }]
+                                }}
+                            >
                                 {step.completed && (
-                                    <View className="w-[16.67px] h-[16.67px] mr-3 rounded-full bg-neutral-500 items-center justify-center">
-                                        <TextElement className="text-black">✓</TextElement>
+                                    <View className="w-[16.67px] h-[16.67px] mr-3 rounded-full bg-white items-center justify-center">
+                                        <TextElement className="text-black text-xs">✓</TextElement>
                                     </View>
                                 )}
                                 <TextElement
-                                    className={`text-white ${step.completed ? 'opacity-100' : 'opacity-50'}`}
+                                    className="text-white text-lg font-medium"
                                 >
                                     {step.text}
                                 </TextElement>
-                            </View>
+                            </Animated.View>
                         ))}
                     </View>
                 </View>
             </View>
-        </>
+        </Animated.View>
     );
 };
 

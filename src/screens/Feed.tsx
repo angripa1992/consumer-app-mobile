@@ -35,6 +35,7 @@ const FeedScreen = () => {
 				/>
 			</View>
 			<FeedCardsRender feedFilterValue={feedFilterValue} />
+			
 		</MainLayout>
 	);
 };

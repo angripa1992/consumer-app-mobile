@@ -32,8 +32,6 @@ import StagingWarningModal from '@/UI/organism/modal/StagingWarningModal';
 import type { AppStackParamList } from '@/lib/types/tabScreenParams';
 import { Video, ResizeMode } from 'expo-av';
 import React from 'react';
-import MatchMakerScreen from '@/screens/Play/MatchMaker';
-import PlayScreen from '@/screens/Play/PlayScreen';
 import PlayNavigator from './PlayNavigator';
 
 const Stack = createStackNavigator<AppStackParamList>();

@@ -1,200 +1,199 @@
-import type { ParamListBase } from '@react-navigation/native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { StackNavigationProp } from '@react-navigation/stack';
+import type { ParamListBase } from "@react-navigation/native";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { StackNavigationProp } from "@react-navigation/stack";
 
 import type {
-	TypeCreateSpotListScreen,
-	TypeSpotListSinglePage,
-	TypeSpotListWithTag,
-} from './spotList';
-import type { TypeFollowListFilter } from './profile';
-import type { TypeViewMoreScreen } from './discovery';
+  TypeCreateSpotListScreen,
+  TypeSpotListSinglePage,
+  TypeSpotListWithTag,
+} from "./spotList";
+import type { TypeFollowListFilter } from "./profile";
+import type { TypeViewMoreScreen } from "./discovery";
 
 export type CommonListNavigation = {
-	SingleList: {
-		spotListId: number;
-		spotList?: TypeSpotListWithTag | null;
-	};
-	SearchSpot: {
-		spotListId: number;
-	};
-	MapScreen: {
-		spotListName: string;
-		spotListId: number;
-		spotsCounter: number;
-		isSpotListOwner: boolean;
-	};
+  SingleList: {
+    spotListId: number;
+    spotList?: TypeSpotListWithTag | null;
+  };
+  SearchSpot: {
+    spotListId: number;
+  };
+  MapScreen: {
+    spotListName: string;
+    spotListId: number;
+    spotsCounter: number;
+    isSpotListOwner: boolean;
+  };
 };
 
 export type CommonProfileNavigation = {
-	ProfileScreen: { userId: number; isFollow?: boolean };
-	FollowView: { userId: number; filter: TypeFollowListFilter };
+  ProfileScreen: { userId: number; isFollow?: boolean };
+  FollowView: { userId: number; filter: TypeFollowListFilter };
 };
 
 //Lists
 export type ListStackParamList = CommonListNavigation &
-	CommonProfileNavigation & {
-		ListsScreen: undefined;
-		ViewMore: TypeViewMoreScreen;
-	};
+  CommonProfileNavigation & {
+    ListsScreen: undefined;
+    ViewMore: TypeViewMoreScreen;
+  };
 
 export type SingleListScreenRouteParams = NativeStackScreenProps<
-	ListStackParamList,
-	'SingleList'
+  ListStackParamList,
+  "SingleList"
 >;
 
 export type SearchSpotScreenRouteParams = NativeStackScreenProps<
-	ListStackParamList,
-	'SearchSpot'
+  ListStackParamList,
+  "SearchSpot"
 >;
 
 export type MapRouteParams = NativeStackScreenProps<
-	ListStackParamList,
-	'MapScreen'
+  ListStackParamList,
+  "MapScreen"
 >;
 
 export type ViewMoreRouteParams = NativeStackScreenProps<
-	ListStackParamList,
-	'ViewMore'
+  ListStackParamList,
+  "ViewMore"
 >;
 
 export type ListNavigationRouteParams =
-	NativeStackScreenProps<ListStackParamList>;
+  NativeStackScreenProps<ListStackParamList>;
 
-export type ListScreenNavigationProp = ListNavigationRouteParams['navigation'];
+export type ListScreenNavigationProp = ListNavigationRouteParams["navigation"];
 
-export type ViewMoreScreenNavigationProp = ViewMoreRouteParams['navigation'];
+export type ViewMoreScreenNavigationProp = ViewMoreRouteParams["navigation"];
 
 // Feed
 export type FeedStackParamList = CommonListNavigation &
-	CommonProfileNavigation & {
-		FeedScreen: undefined;
-		ViewMore: TypeViewMoreScreen;
-		Notifications: undefined;
-	};
+  CommonProfileNavigation & {
+    FeedScreen: undefined;
+    ViewMore: TypeViewMoreScreen;
+    Notifications: undefined;
+  };
 
 export type FeedNavigationRouteParams = NativeStackScreenProps<
-	FeedStackParamList,
-	'FeedScreen'
+  FeedStackParamList,
+  "FeedScreen"
 >;
 
-export type FeedScreenNavigationProps = FeedNavigationRouteParams['navigation'];
+export type FeedScreenNavigationProps = FeedNavigationRouteParams["navigation"];
 
 //Profile
 export type ProfileStackParamList = CommonProfileNavigation &
-	CommonListNavigation & {
-		MyProfileScreen: undefined;
-		ViewMore: TypeViewMoreScreen;
-	};
+  CommonListNavigation & {
+    MyProfileScreen: undefined;
+    ViewMore: TypeViewMoreScreen;
+  };
 
 export type ProfileNavigationRouteParams =
-	NativeStackScreenProps<ProfileStackParamList>;
+  NativeStackScreenProps<ProfileStackParamList>;
 
 export type ProfileScreenRouteParams = NativeStackScreenProps<
-	ProfileStackParamList,
-	'ProfileScreen'
+  ProfileStackParamList,
+  "ProfileScreen"
 >;
 
 export type FollowViewRouteParams = NativeStackScreenProps<
-	ProfileStackParamList,
-	'FollowView'
+  ProfileStackParamList,
+  "FollowView"
 >;
 
 export type ProfileScreenNavigationProp =
-	ProfileScreenRouteParams['navigation'];
+  ProfileScreenRouteParams["navigation"];
 
-export type ProfileScreenRouteProp = ProfileScreenRouteParams['route'];
+export type ProfileScreenRouteProp = ProfileScreenRouteParams["route"];
 
 //Discovery
 
 export type DiscoveryStackParamList = CommonListNavigation &
-	CommonProfileNavigation & {
-		DiscoveryScreen: undefined;
-		ViewMore: TypeViewMoreScreen;
-	};
+  CommonProfileNavigation & {
+    DiscoveryScreen: undefined;
+    ViewMore: TypeViewMoreScreen;
+  };
 export type DiscoveryScreenRouteParams = NativeStackScreenProps<
-	DiscoveryStackParamList,
-	'DiscoveryScreen'
+  DiscoveryStackParamList,
+  "DiscoveryScreen"
 >;
 
 export type DiscoveryScreenNavigationProp =
-	DiscoveryScreenRouteParams['navigation'];
+  DiscoveryScreenRouteParams["navigation"];
 
 // Onboarding
 
 export type OnboardingStackParamList = {
-	InitialView: undefined;
-	ProgressView: undefined;
-	FinalView: {
-		tags: Array<string>;
-		relevantUsers: Array<number>;
-		relevantLists: Array<number>;
-	};
+  InitialView: undefined;
+  ProgressView: undefined;
+  FinalView: {
+    tags: Array<string>;
+    relevantUsers: Array<number>;
+    relevantLists: Array<number>;
+  };
 };
 
-
 export type OnboardingInitialViewRouteParams = NativeStackScreenProps<
-	OnboardingStackParamList,
-	'InitialView'
+  OnboardingStackParamList,
+  "InitialView"
 >;
 
 export type OnboardingProgressViewRouteParams = NativeStackScreenProps<
-	OnboardingStackParamList,
-	'ProgressView'
+  OnboardingStackParamList,
+  "ProgressView"
 >;
 
 export type OnboardingFinalViewRouteParams = NativeStackScreenProps<
-	OnboardingStackParamList,
-	'FinalView'
+  OnboardingStackParamList,
+  "FinalView"
 >;
 
 export type OnboardingRouteParams =
-	NativeStackScreenProps<OnboardingStackParamList>;
+  NativeStackScreenProps<OnboardingStackParamList>;
 
-export type OnboardingNavigationProp = OnboardingRouteParams['navigation'];
+export type OnboardingNavigationProp = OnboardingRouteParams["navigation"];
 
 // auth
 
 export type AuthStackParamList = {
-	WaitList: undefined;
-	Login: undefined;
-	SignUp: undefined;
-	WaitListUseCode: undefined;
-	WaitListShareUs: undefined;
-	WaitListInviteFriends: undefined;
-	WaitListTarotQuiz: undefined;
-	ForgotPassword: undefined;
+  WaitList: undefined;
+  Login: undefined;
+  SignUp: undefined;
+  WaitListUseCode: undefined;
+  WaitListShareUs: undefined;
+  WaitListInviteFriends: undefined;
+  WaitListTarotQuiz: undefined;
+  ForgotPassword: undefined;
 };
 
 export type AuthWaitListRouteParams = NativeStackScreenProps<
-	AuthStackParamList,
-	'WaitList'
+  AuthStackParamList,
+  "WaitList"
 >;
 
 export type AuthLoginRouteParams = NativeStackScreenProps<
-	AuthStackParamList,
-	'Login'
+  AuthStackParamList,
+  "Login"
 >;
 
 export type AuthSignUpRouteParams = NativeStackScreenProps<
-	AuthStackParamList,
-	'SignUp'
+  AuthStackParamList,
+  "SignUp"
 >;
 
 export type AuthForgotPasswordRouteParams = NativeStackScreenProps<
-	AuthStackParamList,
-	'ForgotPassword'
+  AuthStackParamList,
+  "ForgotPassword"
 >;
 
 export type AuthRouteParams = NativeStackScreenProps<AuthStackParamList>;
 
-export type AuthNavigationProp = AuthRouteParams['navigation'];
+export type AuthNavigationProp = AuthRouteParams["navigation"];
 
-export type AuthWaitListNavigationProp = AuthWaitListRouteParams['navigation'];
+export type AuthWaitListNavigationProp = AuthWaitListRouteParams["navigation"];
 
-export type AuthLoginNavigationProp = AuthLoginRouteParams['navigation'];
+export type AuthLoginNavigationProp = AuthLoginRouteParams["navigation"];
 
-export type AuthSignUpNavigationProp = AuthSignUpRouteParams['navigation'];
+export type AuthSignUpNavigationProp = AuthSignUpRouteParams["navigation"];
 
 //Navigation
 
@@ -202,151 +201,184 @@ export type NavigationProps = StackNavigationProp<ParamListBase>;
 
 //App
 export type AppStackParamList = CommonListNavigation &
-	CommonProfileNavigation & {
-		ProfileForm: undefined;
-		TabScreens: undefined;
-		ListEdit: {
-			spotList: TypeSpotListSinglePage;
-		};
-		ListCreate: TypeCreateSpotListScreen;
-		CreateBasicSpot: {
-			country: string;
-			city: string;
-		};
-		InviteFriends: undefined;
-		ErrorScreen: undefined;
-		PlayNavigator: undefined;
-		LikesForSpot: {
-			spotId?: number;
-			googlePlacesId?: string;
-		};
-		ScribblesForSpot: {
-			spotId?: number;
-			googlePlacesId?: string;
-		};
-		ListsForSpot: {
-			spotId?: number;
-			googlePlacesId?: string;
-		};
-		SingleSpot: {
-			spotId: number | string;
-			isCandidateSpot?: boolean;
-			listIdToAddSpot?: number;
-			spotSpotListIdToRemove?: number | null;
-		};
-	};
+  CommonProfileNavigation & {
+    ProfileForm: undefined;
+    TabScreens: undefined;
+    ListEdit: {
+      spotList: TypeSpotListSinglePage;
+    };
+    ListCreate: TypeCreateSpotListScreen;
+    CreateBasicSpot: {
+      country: string;
+      city: string;
+    };
+    InviteFriends: undefined;
+    ErrorScreen: undefined;
+    PlayNavigator: undefined;
+    LikesForSpot: {
+      spotId?: number;
+      googlePlacesId?: string;
+    };
+    ScribblesForSpot: {
+      spotId?: number;
+      googlePlacesId?: string;
+    };
+    ListsForSpot: {
+      spotId?: number;
+      googlePlacesId?: string;
+    };
+    SingleSpot: {
+      spotId: number | string;
+      isCandidateSpot?: boolean;
+      listIdToAddSpot?: number;
+      spotSpotListIdToRemove?: number | null;
+    };
+    QueuePlayScreen: {
+      spotId?: number | string | null;
+      isCandidateSpot?: boolean;
+      googlePlacesId?: string;
+
+    };
+  };
 
 export type AppStackNavigationParams =
-	NativeStackScreenProps<AppStackParamList>;
+  NativeStackScreenProps<AppStackParamList>;
 
-export type AppStackNavigationProp = AppStackNavigationParams['navigation'];
+export type AppStackNavigationProp = AppStackNavigationParams["navigation"];
 
 export type SpotScreenRouteParams = NativeStackScreenProps<
-	ListStackParamList &
-	ProfileStackParamList &
-	DiscoveryStackParamList &
-	AppStackParamList,
-	'SingleSpot'
+  ListStackParamList &
+    ProfileStackParamList &
+    DiscoveryStackParamList &
+    AppStackParamList,
+  "SingleSpot"
+>;
+export type QueueScreenRouteParams = NativeStackScreenProps<
+  ListStackParamList &
+    ProfileStackParamList &
+    DiscoveryStackParamList &
+    AppStackParamList,
+  "QueuePlayScreen"
 >;
 
 export type LikesForSpotScreenRouteParams = NativeStackScreenProps<
-	ListStackParamList &
-	ProfileStackParamList &
-	DiscoveryStackParamList &
-	AppStackParamList,
-	'LikesForSpot'
+  ListStackParamList &
+    ProfileStackParamList &
+    DiscoveryStackParamList &
+    AppStackParamList,
+  "LikesForSpot"
 >;
 
 export type ScribblesForSpotScreenRouteParams = NativeStackScreenProps<
-	ListStackParamList &
-	ProfileStackParamList &
-	DiscoveryStackParamList &
-	AppStackParamList,
-	'ScribblesForSpot'
+  ListStackParamList &
+    ProfileStackParamList &
+    DiscoveryStackParamList &
+    AppStackParamList,
+  "ScribblesForSpot"
 >;
 
 export type ListsForSpotScreenRouteParams = NativeStackScreenProps<
-	ListStackParamList &
-	ProfileStackParamList &
-	DiscoveryStackParamList &
-	AppStackParamList,
-	'ListsForSpot'
+  ListStackParamList &
+    ProfileStackParamList &
+    DiscoveryStackParamList &
+    AppStackParamList,
+  "ListsForSpot"
 >;
 
 export type ListEditScreenRouteParams = NativeStackScreenProps<
-	AppStackParamList,
-	'ListEdit'
+  AppStackParamList,
+  "ListEdit"
 >;
 
-export type SpotScreenRouteProp = SpotScreenRouteParams['navigation'];
+export type SpotScreenRouteProp = SpotScreenRouteParams["navigation"];
 
 export type ListCreateScreenRouteParams = NativeStackScreenProps<
-	AppStackParamList,
-	'ListCreate'
+  AppStackParamList,
+  "ListCreate"
 >;
 
 export type CreateScreenNavigationProp =
-	ListCreateScreenRouteParams['navigation'];
+  ListCreateScreenRouteParams["navigation"];
 
 export type CreateBasicSpotScreenRouteParams = NativeStackScreenProps<
-	AppStackParamList,
-	'CreateBasicSpot'
+  AppStackParamList,
+  "CreateBasicSpot"
 >;
 
 export type CreateBasicSpotScreenNavigationProp =
-	CreateBasicSpotScreenRouteParams['navigation'];
+  CreateBasicSpotScreenRouteParams["navigation"];
 
-//Play	
+//Play
 export type PlayStackParamList = {
-	PlayScreen: undefined;
-	HoldOnScreen: undefined;
-	MatchMakerScreen: undefined;
-	PlayNowScreen: undefined;
-	SelectCityScreen: undefined;
-	QueuePlayScreen: {
-		spotId: number | string;
-		isCandidateSpot?: boolean;
-		listIdToAddSpot?: number;
-		spotSpotListIdToRemove?: number | null;
-	};
-}
+  PlayScreen: undefined;
+  HoldOnScreen: undefined;
+  MatchMakerScreen: undefined;
+  MatchScreen: {
+    spotData: {
+      id: string;
+      name: string;
+      categories: string[];
+    };
+  };
+  PlayNowScreen: undefined;
+  SelectCityScreen: undefined;
+  CollabList: undefined;
+  PlayAgain: undefined;
+  InviteFriends: undefined;
+};
 export type PlayScreenRouteParams = NativeStackScreenProps<
-	PlayStackParamList,
-	'PlayScreen'
+  PlayStackParamList,
+  "PlayScreen"
 >;
 
-export type PlayScreenNavigationProp = PlayScreenRouteParams['navigation'];
+export type PlayScreenNavigationProp = PlayScreenRouteParams["navigation"];
 
 export type HoldOnScreenRouteParams = NativeStackScreenProps<
-	PlayStackParamList,
-	'HoldOnScreen'
+  PlayStackParamList,
+  "HoldOnScreen"
 >;
 
-export type HoldOnScreenNavigationProp = HoldOnScreenRouteParams['navigation'];
+export type HoldOnScreenNavigationProp = HoldOnScreenRouteParams["navigation"];
 
 export type MatchMakerScreenRouteParams = NativeStackScreenProps<
-	PlayStackParamList,
-	'MatchMakerScreen'
+  PlayStackParamList,
+  "MatchMakerScreen"
 >;
 
-export type MatchMakerScreenNavigationProp = MatchMakerScreenRouteParams['navigation'];
+export type MatchMakerScreenNavigationProp =
+  MatchMakerScreenRouteParams["navigation"];
 
 export type PlayNowScreenRouteParams = NativeStackScreenProps<
-	PlayStackParamList,
-	'PlayNowScreen'
+  PlayStackParamList,
+  "PlayNowScreen"
 >;
 
-export type PlayNowScreenNavigationProp = PlayNowScreenRouteParams['navigation'];
+export type PlayNowScreenNavigationProp =
+  PlayNowScreenRouteParams["navigation"];
 
 export type SelectCityScreenRouteParams = NativeStackScreenProps<
-	PlayStackParamList,
-	'SelectCityScreen'
+  PlayStackParamList,
+  "SelectCityScreen"
 >;
 
-export type QueuePlayScreenRouteParams = NativeStackScreenProps<
-	PlayStackParamList &
-	SpotScreenRouteParams &
-	AppStackParamList,
-	'QueuePlayScreen'
+export type MatchScreenRouteParams = NativeStackScreenProps<
+  PlayStackParamList,
+  "MatchScreen"
 >;
+
+export type CollabListScreenRouteParams = NativeStackScreenProps<
+  PlayStackParamList,
+  "CollabList"
+>;
+
+export type PlayAgainScreenRouteParams = NativeStackScreenProps<
+  PlayStackParamList,
+  "PlayAgain"
+>;
+
+export type InviteFriendsScreenRouteParams = NativeStackScreenProps<
+  PlayStackParamList,
+  "InviteFriends"
+>;
+
 
