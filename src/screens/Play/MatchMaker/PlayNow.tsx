@@ -12,12 +12,17 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackNavigationProp } from "@react-navigation/stack";
 import { PlayStackParamList } from "@/lib/types/tabScreenParams";
 import { useNavigation } from "@react-navigation/native";
+import PlayResults from '@/UI/organism/play/PlayResults';
+import usePlayResults from '@/lib/hooks/usePlayResults copy';
 
 type PlayScreenNavigationProp = StackNavigationProp<PlayStackParamList, 'PlayScreen'>;
 
 const PlayNowScreen = () => {
   const navigation = useNavigation<PlayScreenNavigationProp>();
-  const { control } = useForm();
+  const {       
+    renderPersonCard 
+  } = usePlayResults();
+
   const [searchQuery, setSearchQuery] = useState('');
 
   const dummyFriends = [
@@ -117,6 +122,9 @@ const PlayNowScreen = () => {
 
           <ScrollView className="flex-1 mt-3">
             <View className="mb-b mt-4">
+              <PlayResults
+                renderPersonCard={FriendItem}
+              />
               {dummyFriends.map((friend) => (
                 <FriendItem
                   key={friend.id}
@@ -130,8 +138,6 @@ const PlayNowScreen = () => {
               ))}
             </View>
           </ScrollView>
-
-
         </View>
 
       </View>

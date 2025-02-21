@@ -15,6 +15,7 @@ export type TypeQueriesMutateDestination =
 	| 'viewMoreUserSpots'
 	| 'viewMoreHome'
 	| 'spotsNearby'
+	| 'peoplePlay'
 	| 'user'
 	| 'followingUsers'
 	| 'followersUsers'

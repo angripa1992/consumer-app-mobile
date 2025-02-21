@@ -385,3 +385,8 @@ export const NOTIFICATIONS_ENDPOINTS = {
 	DELETE_USER_NOTIFICATIONS_TOKEN: (token: string) =>
 		`/api/v1/user_notification_tokens/${token}`,
 };
+
+export const PLAY_ENDPOINTS = {
+	POST_PEOPLE: (limit: number, offset: number = 0) =>
+		`/api/v9/spots/discover/peoples/?limit=${limit}&offset=${offset}`,
+};
