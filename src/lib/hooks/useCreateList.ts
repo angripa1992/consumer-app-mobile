@@ -23,11 +23,12 @@ interface UseCreateListProps {
 }
 
 const useCreateList = ({ defaultValues, spotListId }: UseCreateListProps) => {
-	const { user } = useAppStore(
+	const { user, globalCityFilterValue } = useAppStore(
 		useShallow((state) => ({
-			user: state.user,
-		})),
-	);
+		  user: state.user,
+		  globalCityFilterValue: state.globalCityFilterValue,
+		}))
+	  );
 	const { tags } = useGetTags();
 	const { allActiveCities } = useGetAllActiveCities();
 
@@ -63,7 +64,7 @@ const useCreateList = ({ defaultValues, spotListId }: UseCreateListProps) => {
 		defaultValues: {
 			tags: defaultNumberTags,
 			description: defaultValues?.description ?? '',
-			city: defaultValues?.city ?? '',
+			city: defaultValues?.city ?? globalCityFilterValue,
 			name: defaultValues?.name ?? '',
 			is_private: defaultValues?.is_private ?? 0,
 		},
@@ -91,14 +92,20 @@ const useCreateList = ({ defaultValues, spotListId }: UseCreateListProps) => {
 
 	useEffect(() => {
 		if (cityOptions && cityOptions.length > 0) {
-			clearErrors('city');
-			const findCityIndex = cityOptions.findIndex(
-				(cityOption) => cityOption.value === defaultValues?.city,
-			);
-			const cityIndex = findCityIndex !== -1 ? findCityIndex : 0;
-			setValue('city', cityOptions[cityIndex].value);
+		  clearErrors("city");
+		  const findCityIndex = cityOptions.findIndex(
+			(cityOption) => cityOption.value === defaultValues?.city
+		  );
+		  const cityIndex = findCityIndex !== -1 ? findCityIndex : 0;
+		  setValue("city", cityOptions[cityIndex].value);
 		}
-	}, [cityOptions]);
+	  }, [cityOptions, globalCityFilterValue]);
+	
+	  useEffect(() => {
+		if (globalCityFilterValue) {
+		  setValue("city", globalCityFilterValue);
+		}
+	  }, [globalCityFilterValue]);
 
 	return {
 		user,
