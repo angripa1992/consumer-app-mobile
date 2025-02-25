@@ -29,7 +29,7 @@ interface DiscoveryMainResultsProps {
 	) => React.JSX.Element;
 	renderPersonCard: (values: TypeDiscoveryPersonCard) => React.JSX.Element;
 	currentCity: string;
-	currentArea: string;
+	currentArea: string[];
 	debounceSearchQuery: string;
 }
 
@@ -56,10 +56,10 @@ const DiscoveryMainResults = ({
 				type,
 				title,
 				querySearch: debounceSearchQuery,
-				area: currentArea,
+				area: currentArea.join(','),
 			});
 		},
-		[navigation, currentCity, , debounceSearchQuery, currentArea],
+		[navigation, currentCity, debounceSearchQuery, currentArea],
 	);
 
 	const popularLists = discoveryResults.popular_lists;

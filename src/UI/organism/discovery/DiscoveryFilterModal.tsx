@@ -251,7 +251,7 @@ const DiscoveryFilterModal = ({
 								optionsActiveTextStyles='text-black'
 								optionsDefaultColor='#FFFFFF00'
 								optionsBackgroundOpacity=''
-								singleSelect
+								singleSelect={false}
 							/>
 						)}
 						{areasToShow.length === 0 && (

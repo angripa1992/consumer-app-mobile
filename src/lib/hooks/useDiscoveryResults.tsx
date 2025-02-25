@@ -58,12 +58,12 @@ const useDiscoveryResults = ({
 		discoverySpots,
 		discoverySpotsMessage,
 		refetch: refetchDiscoverySpots,
-	} = usePostDiscoverySpots(currentCity, currentAreas[0], {
+	} = usePostDiscoverySpots(currentCity, currentAreas.join(','), {
 		search_content: debounceSearchQuery,
 	});
 
 	const { allDiscoverySpots, isLoadingAllDiscoverySpots } =
-		usePostDiscoverySpotsWithInfiniteScroll(currentCity, currentAreas[0], {
+		usePostDiscoverySpotsWithInfiniteScroll(currentCity, currentAreas.join(','), {
 			search_content: debounceSearchQuery,
 		});
 
