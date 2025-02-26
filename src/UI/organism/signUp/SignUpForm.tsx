@@ -87,34 +87,6 @@ const SignUpForm = ({
 		setShowWaitlistContactSoonScreen('contactSoon');
 	};
 
-	const onPressSkipWaitlistOnEmailError = () => {
-		setShowWaitlistContactSoonScreen('contactSoon');
-		setWaitlistUserEmail(emailValue);
-		reset();
-	};
-
-	const showEmailNotApprovedError = () => {
-		if (approvedStatus === 'not approved') {
-			return (
-				<View className='flex-row items-center mt-1'>
-					<TextElement textStyles={`text-light-white mr-1`}>
-						{i18nInstance.t('thisUserIsOnTheWaitlist')}
-					</TextElement>
-					<TouchableOpacity
-						className='py-0'
-						onPress={onPressSkipWaitlistOnEmailError}
-						activeOpacity={1}
-					>
-						<TextElement textStyles='text-light-white underline'>
-							{i18nInstance.t('clickHere')}
-						</TextElement>
-					</TouchableOpacity>
-				</View>
-			);
-		}
-
-		return null;
-	};
 
 	useEffect(() => {
 		setValue('city', cityChosen !== 'Select Option' ? cityChosen : '');
@@ -170,7 +142,6 @@ const SignUpForm = ({
 						testID='signup-email'
 						style={styles.inputStyles}
 					/>
-					{showEmailNotApprovedError()}
 					<InputForm
 						control={control}
 						placeholder={i18nInstance.t('yourName')}
