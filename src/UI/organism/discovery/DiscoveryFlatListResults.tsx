@@ -101,7 +101,7 @@ const DiscoveryFlatListResults = ({
 							{renderSpotsNearby()}
 							{discoveryResults && (
 								<DiscoveryMainResults
-									currentArea={currentAreas[0]}
+									currentArea={currentAreas}
 									discoverySpots={discoverySpots}
 									refetchDiscoverySpots={refetchDiscoverySpots}
 									discoveryResults={discoveryResults}

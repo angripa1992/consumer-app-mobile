@@ -220,11 +220,12 @@ export const DISCOVERY_ENDPOINTS = {
 	},
 	POST_SPOTS: (
 		city: string,
-		area: string,
+		areas: string,
 		limit: number,
 		offset: number = 0,
 	) => {
-		return `/api/v9/spots/discover_matches?city=${area ?? city}&limit=${limit}&offset=${offset}`;
+		const location = areas || city;
+		return `/api/v10/spots/discover_matches?city=${location}&limit=${limit}&offset=${offset}`;
 	},
 	POST_LISTS: (city: string, limit: number, offset: number = 0) => {
 		return `/api/v8/spots/discover/lists/?city=${city}&limit=${limit}&offset=${offset}`;

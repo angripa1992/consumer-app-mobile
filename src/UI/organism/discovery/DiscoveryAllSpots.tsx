@@ -1,80 +1,88 @@
-import { useCallback } from 'react';
-import InfiniteScrollFlashList from '@/UI/molecules/infiniteScroll/InfiniteScrollFlashList';
-import { usePostDiscoverySpotsWithInfiniteScroll } from '@/lib/hooks/useQueryDiscovery';
-import { useRefetchOnFocus } from '@/lib/hooks/useRefetchOnFocus';
+import { useCallback } from "react";
+import { View } from "react-native";
 
-import type { TypeSpotFromDiscoveryCard } from '@/lib/types/discovery';
+import InfiniteScrollFlashList from "@/UI/molecules/infiniteScroll/InfiniteScrollFlashList";
+import { usePostDiscoverySpotsWithInfiniteScroll } from "@/lib/hooks/useQueryDiscovery";
+import { useRefetchOnFocus } from "@/lib/hooks/useRefetchOnFocus";
+
+import type { TypeSpotFromDiscoveryCard } from "@/lib/types/discovery";
 
 interface DiscoveryAllSpotsProps {
-	spotsNearbyComponent: JSX.Element;
-	renderCandidateSpotCard: (values: TypeSpotFromDiscoveryCard) => JSX.Element;
-	searchQuery: string;
-	currentCity: string;
-	currentAreas: string[];
+  spotsNearbyComponent: JSX.Element;
+  renderCandidateSpotCard: (values: TypeSpotFromDiscoveryCard) => JSX.Element;
+  searchQuery: string;
+  currentCity: string;
+  currentAreas: string[];
 }
 const DiscoveryAllSpots = ({
-	spotsNearbyComponent,
-	renderCandidateSpotCard,
-	searchQuery,
-	currentCity,
-	currentAreas,
+  spotsNearbyComponent,
+  renderCandidateSpotCard,
+  searchQuery,
+  currentCity,
+  currentAreas,
 }: DiscoveryAllSpotsProps) => {
-	const {
-		allDiscoverySpots,
-		isLoadingAllDiscoverySpots,
-		refetchAllDiscoverySpots,
-		hasNextPageAllDiscoverySpots,
-		fetchNextPageAllDiscoverySpots,
-		isFetchingNextPageAllDiscoverySpots,
-	} = usePostDiscoverySpotsWithInfiniteScroll(currentCity, currentAreas[0], {
-		search_content: searchQuery,
-	});
+  const {
+    allDiscoverySpots,
+    isLoadingAllDiscoverySpots,
+    refetchAllDiscoverySpots,
+    hasNextPageAllDiscoverySpots,
+    fetchNextPageAllDiscoverySpots,
+    isFetchingNextPageAllDiscoverySpots,
+  } = usePostDiscoverySpotsWithInfiniteScroll(
+    currentCity,
+    currentAreas.join(","),
+    {
+      search_content: searchQuery,
+    }
+  );
 
-	useRefetchOnFocus(refetchAllDiscoverySpots);
+  useRefetchOnFocus(refetchAllDiscoverySpots);
 
-	const renderItem = useCallback(
-		({
-			item,
-			index,
-		}: {
-			item: TypeSpotFromDiscoveryCard['item'];
-			index: number;
-		}) =>
-			renderCandidateSpotCard({
-				item,
-				index,
-				queryMutateDestination: 'allSpotDiscovery',
-				isFlashList: true,
-			}),
-		[renderCandidateSpotCard],
-	);
+  const renderItem = useCallback(
+    ({
+      item,
+      index,
+    }: {
+      item: TypeSpotFromDiscoveryCard["item"];
+      index: number;
+    }) =>
+      renderCandidateSpotCard({
+        item,
+        index,
+        queryMutateDestination: "allSpotDiscovery",
+        isFlashList: true,
+      }),
+    [renderCandidateSpotCard]
+  );
 
-	const keyExtractor = useCallback(
-		(item: TypeSpotFromDiscoveryCard['item'], index: number) => {
-			if ('empty' in item && item.empty) {
-				return `empty-${index}`;
-			}
-			return item.id
-				? item.id.toString()
-				: item?.google_place_location_id?.toString() || index.toString();
-		},
-		[],
-	);
+  const keyExtractor = useCallback(
+    (item: TypeSpotFromDiscoveryCard["item"], index: number) => {
+      if ("empty" in item && item.empty) {
+        return `empty-${index}`;
+      }
+      return item.id
+        ? item.id.toString()
+        : item?.google_place_location_id?.toString() || index.toString();
+    },
+    []
+  );
 
-	return (
-		<InfiniteScrollFlashList
-			ListHeaderComponent={spotsNearbyComponent}
-			fetchNextPage={fetchNextPageAllDiscoverySpots}
-			hasNextPage={hasNextPageAllDiscoverySpots}
-			isFetchingNextPage={isFetchingNextPageAllDiscoverySpots}
-			isLoading={isLoadingAllDiscoverySpots}
-			showsVerticalScrollIndicator={false}
-			dataToRender={allDiscoverySpots}
-			renderItem={renderItem}
-			keyExtractor={keyExtractor}
-			hideEmptyComponent
-		/>
-	);
+  return (
+    <View className="flex-1">
+      <InfiniteScrollFlashList
+        ListHeaderComponent={spotsNearbyComponent}
+        fetchNextPage={fetchNextPageAllDiscoverySpots}
+        hasNextPage={hasNextPageAllDiscoverySpots}
+        isFetchingNextPage={isFetchingNextPageAllDiscoverySpots}
+        isLoading={isLoadingAllDiscoverySpots}
+        showsVerticalScrollIndicator={false}
+        dataToRender={allDiscoverySpots}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        hideEmptyComponent
+      />
+    </View>
+  );
 };
 
 export default DiscoveryAllSpots;
