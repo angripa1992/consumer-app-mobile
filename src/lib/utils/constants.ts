@@ -63,6 +63,8 @@ export const LIMIT_DISCOVERY_SPOTS = 10;
 export const LIMIT_FEATURED_LISTS = 20;
 export const LIMIT_NOTIFICATIONS = 20;
 
+export const LIMIT_PEOPLE = 20;
+
 // regex
 export const noSpacesRegex = /^[^\s]+$/;
 

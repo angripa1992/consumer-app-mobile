@@ -17,19 +17,11 @@ export const getCategoriesNameAndData = <T>(
 ): CategoryResult<T>[] => {
 	if (!categories) return [];
 
-	return Object.entries(categories).map(([category_name, data]) => {
-		let category_name_to_render = '';
-
-		if (category_name === 'liked_list') {
-			category_name_to_render = 'listsYouLiked';
-		} else {
-			category_name_to_render = `${fromSnakeCaseToCamelCase(category_name)}${isPlural ? 's' : ''}`;
-		}
-
-		return {
-			category_name,
-			category_name_to_render,
-			data,
-		};
-	});
+	return Object.entries(categories).map(([category_name, data]) => ({
+		category_name,
+		category_name_to_render: category_name === 'liked_list' 
+			? 'listsYouLiked' 
+			: `${fromSnakeCaseToCamelCase(category_name.replace(/_?category$/i, ''))}${isPlural ? 's' : ''}`,
+		data,
+	}));
 };

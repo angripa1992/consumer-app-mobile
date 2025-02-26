@@ -44,3 +44,6 @@ artifacts
 
 *pc-api*
 *firebase-adminsdk*
+
+# Firebase configuration
+config/firebase.js
